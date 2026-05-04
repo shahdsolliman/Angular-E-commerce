@@ -1,0 +1,166 @@
+/* ==========================================================================
+   CATEGORIES PAGE STYLES
+   ========================================================================== */
+
+/* ── Effects ─────────────────────────────────────────────────────────────── */
+.gray-effect {
+  filter: grayscale(1);
+  transition: all 700ms ease;
+}
+
+.img-zoom {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.group:hover .img-zoom {
+  transform: scale(1.05);
+  filter: grayscale(0);
+}
+
+/* ── Bento Grid ─────────────────────────────────────────────────────────── */
+.bento-categories {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .bento-categories {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+
+.bento-item {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2.5rem;
+  min-height: 18rem;
+}
+
+.bento-img-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.bento-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+}
+
+.bento-content {
+  position: relative;
+  z-index: 10;
+}
+
+/* Spans */
+.bento-item--fashion {
+  min-height: 25rem;
+}
+
+@media (min-width: 768px) {
+  .bento-item--fashion { grid-column: span 8; }
+  .bento-item--electronics { grid-column: span 4; min-height: 25rem; }
+  .bento-item--small { grid-column: span 4; min-height: 18rem; }
+}
+
+/* Content Elements */
+.item-count { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; opacity: 0.8; }
+.item-count-dark { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; color: var(--color-text-muted); }
+
+.item-title-lg { font-size: 2.5rem; font-weight: 800; margin-top: 0.5rem; line-height: 1.1; }
+.item-title-md { font-size: 1.75rem; font-weight: 800; margin-top: 0.5rem; line-height: 1.2; }
+.item-title-sm { font-size: 1.25rem; font-weight: 800; margin-top: 0.5rem; }
+
+.item-desc { font-size: 0.875rem; color: rgba(255,255,255,0.7); max-width: 22rem; margin-top: 1rem; line-height: 1.6; }
+
+.item-action {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.item-action-small {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-top: 1rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* ── List View ──────────────────────────────────────────────────────────── */
+.category-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+  border-radius: var(--radius-xl);
+  cursor: pointer;
+  background-color: var(--color-bg-elevated);
+  transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.list-item:hover {
+  background-color: #fff;
+  box-shadow: var(--shadow-xl);
+  transform: translateX(8px);
+}
+
+.list-item__lead {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.list-item__icon-box {
+  width: 5rem;
+  height: 5rem;
+  border-radius: var(--radius-lg);
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-secondary);
+  box-shadow: var(--shadow-sm);
+}
+
+.list-item__title { font-size: 1.25rem; font-weight: 700; color: var(--color-text-primary); }
+.list-item__sub { font-size: 0.875rem; color: var(--color-text-secondary); margin-top: 0.25rem; }
+
+.list-item__trail {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.price-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; color: var(--color-text-muted); text-align: right; display: block; }
+.price-value { font-size: 1rem; font-weight: 700; color: var(--color-text-primary); text-align: right; margin-top: 0.25rem; }
+
+.trail-arrow { color: var(--color-text-muted); transition: all 300ms ease; }
+.list-item:hover .trail-arrow { color: var(--color-primary); transform: translateX(4px); }

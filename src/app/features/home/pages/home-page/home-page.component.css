@@ -1,0 +1,54 @@
+/* ==========================================================================
+   HOME PAGE STYLES
+   ========================================================================== */
+
+/* ── Categories Preview ─────────────────────────────────────────────────── */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .category-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+.category-pioneer {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+}
+
+.category-pioneer__circle {
+  aspect-ratio: 1 / 1;
+  background-color: var(--color-bg-elevated);
+  border-radius: 9999px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  transition: transform 500ms ease;
+}
+
+.category-pioneer:hover .category-pioneer__circle {
+  transform: scale(0.98);
+}
+
+.category-pioneer__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.category-pioneer__title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-text-primary);
+}
+
+.category-pioneer__count {
+  font-size: 10px;
+  color: var(--color-text-muted);
+  margin-top: 0.25rem;
+}
+

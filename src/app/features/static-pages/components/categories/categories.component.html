@@ -1,0 +1,67 @@
+<main class="bg-white dark:bg-slate-950 pt-32 pb-40">
+  <div class="container-app">
+    
+    <!-- 1. Editorial Header -->
+    <header class="mb-24 flex flex-col md:flex-row items-end justify-between gap-12 border-b border-slate-100 dark:border-slate-900 pb-16">
+      <div class="max-w-2xl">
+        <h1 class="text-7xl md:text-9xl font-black tracking-tighter text-slate-900 dark:text-white uppercase italic leading-none">
+          Archive<br/><span class="text-outline-dark dark:text-outline-white opacity-40">Taxonomy</span>
+        </h1>
+        <p class="mt-10 text-slate-400 text-lg font-medium italic max-w-lg">
+           Browse our systematically organized collections. Each artifact is categorized by its architectural function and aesthetic intent.
+        </p>
+      </div>
+    </header>
+
+    <!-- 2. Dynamic Category Bento Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      @if (categories(); as cats) {
+        @for (cat of cats; track cat._id) {
+           <div 
+             [routerLink]="['/products']"
+             [queryParams]="{category: cat._id}"
+             class="group relative aspect-[1/1] overflow-hidden rounded-[2.5rem] bg-slate-50 dark:bg-slate-900 cursor-pointer shadow-2xl shadow-black/5 hover:shadow-black/10 transition-all duration-700"
+           >
+              <!-- Background Image -->
+              <img 
+                [src]="cat.image" 
+                [alt]="cat.name" 
+                class="absolute inset-0 w-full h-full object-cover grayscale transition-all duration-[1.5s] cubic-bezier(0.16, 1, 0.3, 1) group-hover:scale-110 group-hover:grayscale-0"
+              />
+              
+              <!-- Gradient Overlay -->
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent opacity-80 group-hover:opacity-40 transition-opacity"></div>
+              
+              <!-- Content -->
+              <div class="absolute inset-0 p-12 flex flex-col justify-end">
+                 <span class="text-[9px] font-black uppercase tracking-[0.4em] text-white/60 mb-2">Artifact Phase</span>
+                 <h2 class="text-3xl font-black text-white uppercase tracking-tighter italic leading-none group-hover:translate-x-2 transition-transform duration-500">{{ cat.name }}</h2>
+                 
+                 <!-- Hidden on mobile, reveal on hover -->
+                 <div class="mt-6 flex items-center gap-4 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                    <span class="text-[10px] font-black uppercase tracking-widest text-white italic">Explore Segment</span>
+                    <span class="w-12 h-px bg-white/40"></span>
+                    <span class="material-symbols-outlined text-white text-[18px]">trending_flat</span>
+                 </div>
+              </div>
+           </div>
+        }
+      } @else {
+        <!-- Skeleton Grid -->
+        @for (i of [1,2,3,4,5,6]; track i) {
+          <div class="aspect-square bg-slate-100 dark:bg-slate-900 rounded-[2.5rem] animate-pulse"></div>
+        }
+      }
+    </div>
+
+    <!-- 3. Aesthetic Footer -->
+    <footer class="mt-40 text-center">
+       <div class="w-20 h-20 rounded-full border border-slate-100 dark:border-slate-800 flex items-center justify-center mx-auto mb-10 text-slate-300">
+          <span class="material-symbols-outlined text-[32px]">architecture</span>
+       </div>
+       <p class="text-[10px] font-black uppercase tracking-[0.5em] text-slate-300 italic">Curating The Future Grid</p>
+    </footer>
+
+  </div>
+</main>

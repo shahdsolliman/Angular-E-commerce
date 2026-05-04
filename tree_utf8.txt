@@ -1,0 +1,295 @@
+﻿Folder PATH listing for volume New Volume
+Volume serial number is C31A-0C80
+E:\ANGULAR ASS\E-COMMERCE-PROJECT\SRC\APP
+|   app.config.ts
+|   app.css
+|   app.html
+|   app.routes.ts
+|   app.ts
+|   
++---core
+|   +---components
+|   |   +---footer
+|   |   |       footer.component.css
+|   |   |       footer.component.html
+|   |   |       footer.component.ts
+|   |   |       
+|   |   \---navbar
+|   |           navbar.component.css
+|   |           navbar.component.html
+|   |           navbar.component.ts
+|   |           
+|   +---constants
+|   |       endpoints.ts
+|   |       storedkeys.ts
+|   |       
+|   +---guards
+|   +---interceptors
+|   |       auth.interceptor.ts
+|   |       error.interceptor.ts
+|   |       loading.interceptor.ts
+|   |       
+|   +---interfaces
+|   |       brand.interface.ts
+|   |       IBrand.interface.ts
+|   |       INavItem.interface.ts
+|   |       IShared.interface.ts
+|   |       nav-item.interface.ts
+|   |       shared.interface.ts
+|   |       
+|   +---layout
+|   |   +---auth-layout
+|   |   |       auth-layout.component.css
+|   |   |       auth-layout.component.html
+|   |   |       auth-layout.component.ts
+|   |   |       
+|   |   +---guest-layout
+|   |   |       guest-layout.component.css
+|   |   |       guest-layout.component.html
+|   |   |       guest-layout.component.ts
+|   |   |       
+|   |   \---main-layout
+|   |           main-layout.component.css
+|   |           main-layout.component.html
+|   |           main-layout.component.ts
+|   |           
+|   \---services
+|       +---brand
+|       |       brand.service.ts
+|       |       
+|       +---flowbite
+|       |       flowbite.service.ts
+|       |       
+|       +---loading
+|       |       loading.service.ts
+|       |       
+|       +---product
+|       \---utilities
+|               base-http.service.ts
+|               
++---features
+|   +---auth
+|   |   |   auth-common.css
+|   |   |   auth.interface.ts
+|   |   |   auth.route.ts
+|   |   |   IAuth.interface.ts
+|   |   |   
+|   |   +---components
+|   |   |   +---forget-password-form
+|   |   |   |       forget-password-form.component.css
+|   |   |   |       forget-password-form.component.html
+|   |   |   |       forget-password-form.component.ts
+|   |   |   |       
+|   |   |   +---login-form
+|   |   |   |       login-form.component.css
+|   |   |   |       login-form.component.html
+|   |   |   |       login-form.component.ts
+|   |   |   |       
+|   |   |   \---register-form
+|   |   |           register-form.component.css
+|   |   |           register-form.component.html
+|   |   |           register-form.component.ts
+|   |   |           
+|   |   +---interfaces
+|   |   +---models
+|   |   +---pages
+|   |   |   +---forget-password-page
+|   |   |   |       forget-password-page.component.css
+|   |   |   |       forget-password-page.component.html
+|   |   |   |       forget-password-page.component.ts
+|   |   |   |       
+|   |   |   +---login-page
+|   |   |   |       login-page.component.css
+|   |   |   |       login-page.component.html
+|   |   |   |       login-page.component.ts
+|   |   |   |       
+|   |   |   \---register-page
+|   |   |           register-page.component.css
+|   |   |           register-page.component.html
+|   |   |           register-page.component.ts
+|   |   |           
+|   |   +---services
+|   |   |       auth.service.ts
+|   |   |       
+|   |   \---stores
+|   |           auth.store.ts
+|   |           
+|   +---brands
+|   |   |   brands.interface.ts
+|   |   |   IBrands.interface.ts
+|   |   |   
+|   |   +---components
+|   |   |   \---brands-list
+|   |   |           brands.component.html
+|   |   |           brands.component.scss
+|   |   |           brands.component.ts
+|   |   |           
+|   |   +---interfaces
+|   |   +---models
+|   |   |       IGetAllBrandsResponse.ts
+|   |   |       
+|   |   +---services
+|   |   |       brand.service.ts
+|   |   |       
+|   |   \---stores
+|   |           brand.store.ts
+|   |           
+|   +---cart
+|   |   |   cart.interface.ts
+|   |   |   ICart.interface.ts
+|   |   |   
+|   |   +---components
+|   |   |   \---cart-details
+|   |   |           cart.component.css
+|   |   |           cart.component.html
+|   |   |           cart.component.ts
+|   |   |           
+|   |   +---models
+|   |   +---services
+|   |   |       cart.service.ts
+|   |   |       
+|   |   \---stores
+|   |           cart.store.ts
+|   |           
+|   +---categories
+|   |   |   categories.interface.ts
+|   |   |   ICategories.interface.ts
+|   |   |   
+|   |   +---interfaces
+|   |   |       ICategoryResponse.ts
+|   |   |       
+|   |   +---models
+|   |   +---pages
+|   |   |   \---categories-page
+|   |   |           categories-page.component.ts
+|   |   |           
+|   |   +---services
+|   |   |       category.service.ts
+|   |   |       
+|   |   \---stores
+|   |           category.store.ts
+|   |           
+|   +---home
+|   |   |   home.routes.ts
+|   |   |   
+|   |   +---components
+|   |   |   +---categories-slider
+|   |   |   |       categories-slider.component.css
+|   |   |   |       categories-slider.component.html
+|   |   |   |       categories-slider.component.ts
+|   |   |   |       
+|   |   |   +---home-products
+|   |   |   \---main-slider
+|   |   |           main-slider.component.css
+|   |   |           main-slider.component.html
+|   |   |           main-slider.component.ts
+|   |   |           
+|   |   +---interfaces
+|   |   |       IAllProductsResponse.ts
+|   |   |       
+|   |   \---pages
+|   |       \---home-page
+|   |               home-page.component.css
+|   |               home-page.component.html
+|   |               home-page.component.ts
+|   |               
+|   +---payment
+|   |   |   IPayment.interface.ts
+|   |   |   payment.interface.ts
+|   |   |   
+|   |   +---components
+|   |   |   \---checkout
+|   |   |           checkout.component.css
+|   |   |           checkout.component.html
+|   |   |           checkout.component.ts
+|   |   |           
+|   |   +---models
+|   |   +---services
+|   |   \---stores
+|   +---products
+|   |   |   IProducts.interface.ts
+|   |   |   products.interface.ts
+|   |   |   products.routes.ts
+|   |   |   
+|   |   +---components
+|   |   |   \---card-products
+|   |   |           card-products.component.css
+|   |   |           card-products.component.html
+|   |   |           card-products.component.spec.ts
+|   |   |           card-products.component.ts
+|   |   |           
+|   |   +---interfaces
+|   |   |       IProductResponse.ts
+|   |   |       
+|   |   +---models
+|   |   |       product.model.ts
+|   |   |       
+|   |   +---pages
+|   |   |   +---product-detail
+|   |   |   |       product-detail.component.css
+|   |   |   |       product-detail.component.html
+|   |   |   |       product-detail.component.ts
+|   |   |   |       
+|   |   |   \---products-list
+|   |   |           products.component.css
+|   |   |           products.component.html
+|   |   |           products.component.ts
+|   |   |           
+|   |   +---services
+|   |   |       product.service.ts
+|   |   |       
+|   |   \---stores
+|   |           product.store.ts
+|   |           
+|   +---static-pages
+|   |   \---components
+|   |       +---categories
+|   |       |       categories.component.css
+|   |       |       categories.component.html
+|   |       |       categories.component.ts
+|   |       |       
+|   |       \---not-found
+|   |               not-found.component.css
+|   |               not-found.component.html
+|   |               not-found.component.ts
+|   |               
+|   \---wishlist
+|       |   wishlist.interface.ts
+|       |   
+|       +---services
+|       |       wishlist.service.ts
+|       |       
+|       \---stores
+|               wishlist.store.ts
+|               
+\---shared
+    +---components
+    |   +---button
+    |   |       button.component.ts
+    |   |       
+    |   +---card
+    |   |       card.component.ts
+    |   |       
+    |   +---category-card
+    |   |       category-card.component.ts
+    |   |       
+    |   +---hero-slider
+    |   |       hero-slider.component.ts
+    |   |       
+    |   +---input
+    |   |       input.component.ts
+    |   |       
+    |   +---loading
+    |   |       loading.component.ts
+    |   |       
+    |   +---product-card
+    |   |       product-card.component.ts
+    |   |       
+    |   +---product-skeleton
+    |   |       product-skeleton.component.ts
+    |   |       
+    |   \---skeleton-loader
+    |           skeleton-loader.component.ts
+    |           
+    +---directives
+    \---pipes

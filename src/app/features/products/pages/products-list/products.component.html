@@ -1,0 +1,189 @@
+<!-- ══════════════════════════════════════════════════
+     PRODUCTS PAGE: THE ATELIER COLLECTION
+     ══════════════════════════════════════════════════ -->
+<main class="pt-32 pb-40">
+  <div class="container-app">
+
+    <!-- Editorial Header -->
+    <header
+      class="mb-24 flex flex-col lg:flex-row items-end justify-between gap-12 border-b border-outline-variant pb-16 animate-reveal">
+      <div class="max-w-2xl">
+        <nav class="flex items-center gap-3 mb-8 text-[10px] font-bold uppercase tracking-[0.3em] text-text-muted">
+          <a routerLink="/home" class="hover:text-primary transition-smooth">Home</a>
+          <span class="w-1 h-1 rounded-full bg-outline"></span>
+          <span class="text-primary">All Collections</span>
+        </nav>
+        <h1 class="text-6xl md:text-8xl font-bold tracking-tighter leading-none mb-6">
+          The <span class="text-accent italic font-serif font-normal">Collection</span>
+        </h1>
+        <p class="text-lg text-on-surface-variant font-light max-w-lg">
+          Explore our curated archive of premium essentials, designed with a focus on minimalist elegance and timeless
+          appeal.
+        </p>
+      </div>
+
+      <!-- Utility Bar: Search & Sort -->
+      <div class="flex flex-col sm:flex-row items-center gap-4 w-full lg:w-auto">
+        <!-- Search Control -->
+        <div class="relative w-full sm:w-80 group">
+          <svg xmlns="http://www.w3.org/2000/svg"
+            class="w-5 h-5 absolute left-5 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-accent transition-smooth"
+            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+          <input type="text" (input)="onSearch($event)" placeholder="Search Collection..."
+            class="w-full pl-14 pr-6 py-4 bg-surface-container border border-transparent rounded-full text-sm font-medium placeholder:text-text-muted focus:bg-white focus:border-accent outline-none transition-smooth shadow-sm shadow-black/5" />
+        </div>
+
+        <!-- Sort Control -->
+        <div class="relative w-full sm:w-auto">
+          <select (change)="onSortChange($event)"
+            class="appearance-none w-full sm:w-auto pl-8 pr-12 py-4 bg-surface-container border border-transparent rounded-full text-sm font-bold uppercase tracking-widest outline-none cursor-pointer hover:bg-outline-variant transition-smooth shadow-sm shadow-black/5">
+            <option value="default">Sort by</option>
+            <option value="price">Price: Low to High</option>
+            <option value="-price">Price: High to Low</option>
+            <option value="-ratingsAverage">Popularity</option>
+          </select>
+          <svg xmlns="http://www.w3.org/2000/svg"
+            class="w-4 h-4 absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant"
+            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </div>
+      </div>
+    </header>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+
+      <!-- Minimalist Sidebar (Taxonomy) -->
+      <aside class="lg:col-span-3">
+        <div class="sticky top-32 space-y-12 animate-reveal" style="animation-delay: 0.1s">
+          <div>
+            <h3 class="text-[10px] font-bold uppercase tracking-[0.4em] text-accent mb-10">Categories</h3>
+            <ul class="flex flex-col gap-5">
+              <li>
+                <button (click)="setCategory('All Items')" [class.text-primary]="selectedCategory() === 'All Items'"
+                  [class.font-bold]="selectedCategory() === 'All Items'"
+                  class="flex items-center justify-between w-full text-sm text-on-surface-variant hover:text-primary transition-smooth group">
+                  <span>All Products</span>
+                  <span class="w-1.5 h-1.5 rounded-full bg-accent transition-transform scale-0 group-hover:scale-100"
+                    [class.scale-100]="selectedCategory() === 'All Items'"></span>
+                </button>
+              </li>
+              @for (cat of categories(); track cat._id) {
+              <li>
+                <button (click)="setCategory(cat._id)" [class.text-primary]="selectedCategory() === cat._id"
+                  [class.font-bold]="selectedCategory() === cat._id"
+                  class="flex items-center justify-between w-full text-sm text-on-surface-variant hover:text-primary transition-smooth group">
+                  <span>{{ cat.name }}</span>
+                  <span class="w-1.5 h-1.5 rounded-full bg-accent transition-transform scale-0 group-hover:scale-100"
+                    [class.scale-100]="selectedCategory() === cat._id"></span>
+                </button>
+              </li>
+              }
+            </ul>
+          </div>
+
+          <!-- Promo Banner in Sidebar -->
+          <div class="p-8 bg-primary rounded-2xl text-white relative overflow-hidden group">
+            <div class="relative z-10 space-y-4">
+              <span class="text-[10px] font-bold uppercase tracking-widest text-accent">Season Pass</span>
+              <h4 class="text-xl font-bold leading-tight !text-white">Get 20% Off Your First Order</h4>
+              <p class="text-xs text-white font-light !text-white leading-relaxed">Join the Atelier circle today.</p>
+              <button
+                class="text-[10px] font-bold uppercase tracking-widest border-b border-accent pb-1 group-hover:text-accent transition-smooth">Learn
+                More</button>
+            </div>
+            <div
+              class="absolute -bottom-10 -right-10 w-32 h-32 bg-accent/20 rounded-full blur-2xl group-hover:scale-150 transition-smooth">
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Dynamic Artifact Grid -->
+      <section class="lg:col-span-9">
+
+        @if (isLoading()) {
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
+          @for (i of [1,2,3,4,5,6]; track i) {
+          <app-product-skeleton></app-product-skeleton>
+          }
+        </div>
+        } @else if (error()) {
+        <div class="flex flex-col items-center justify-center py-40 text-center animate-reveal">
+          <div class="w-20 h-20 bg-surface-container rounded-full flex items-center justify-center mb-8">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-outline" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+          </div>
+          <h4 class="text-xl font-bold mb-4">Connection Interrupted</h4>
+          <p class="text-on-surface-variant text-sm max-w-xs mx-auto mb-10">{{ error() }}</p>
+          <button (click)="retry()" class="btn-primary">Retry Connection</button>
+        </div>
+        } @else {
+
+        @if (products().length === 0) {
+        <div class="flex flex-col items-center justify-center py-40 text-center animate-reveal">
+          <div class="w-20 h-20 bg-surface-container rounded-full flex items-center justify-center mb-8">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-outline" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </div>
+          <h4 class="text-xl font-bold">No Matches Found</h4>
+          <p class="text-on-surface-variant text-sm mt-4">We couldn't find any products matching your current selection.
+          </p>
+          <button (click)="setCategory('All Items')"
+            class="mt-8 text-sm font-bold text-accent uppercase tracking-widest hover:text-primary transition-smooth">Clear
+            Filters</button>
+        </div>
+        } @else {
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
+          @for (product of products(); track trackByProductId($index, product)) {
+          <app-product-card [product]="product"
+            [isFavorite]="wishlistStore.favoriteIds().has(product.id || product._id)"
+            (addToCart)="handleAddToCart(product)" (toggleWishlist)="handleToggleFavorite($event)" />
+          }
+        </div>
+
+        <!-- Pagination Interface -->
+        <div
+          class="mt-32 pt-16 border-t border-outline-variant flex flex-col sm:flex-row items-center justify-between gap-12 animate-reveal">
+          <div class="flex items-center gap-12">
+            <button [disabled]="currentPage() === 1" (click)="prevPage()"
+              class="w-16 h-16 rounded-full border border-outline flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-white disabled:opacity-30 disabled:pointer-events-none transition-smooth active:scale-90">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
+            </button>
+
+            <div class="flex flex-col items-center gap-1">
+              <span class="text-[10px] font-bold uppercase tracking-[0.4em] text-text-muted">Page</span>
+              <span class="text-2xl font-bold">{{ currentPage() }}</span>
+            </div>
+
+            <button [disabled]="!pagination() || currentPage() === pagination()?.numberOfPages" (click)="nextPage()"
+              class="w-16 h-16 rounded-full border border-outline flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-white disabled:opacity-30 disabled:pointer-events-none transition-smooth active:scale-90">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </button>
+          </div>
+
+          <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-text-muted">
+            Showing {{ products().length }} of {{ results() }} Products
+          </p>
+        </div>
+        }
+        }
+      </section>
+    </div>
+  </div>
+</main>

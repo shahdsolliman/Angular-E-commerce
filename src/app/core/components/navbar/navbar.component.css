@@ -1,0 +1,21 @@
+@reference "../../../../styles.css";
+
+.nav-link.active-link {
+    @apply text-slate-900 dark:text-white;
+}
+
+.nav-link.active-link .indicator {
+    @apply w-full;
+}
+
+.nav-link:hover .indicator {
+    @apply w-1/2;
+}
+
+.active-bottom-nav {
+    @apply bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-white scale-110 shadow-lg shadow-black/5;
+}
+
+.active-bottom-nav .material-symbols-outlined {
+    font-variation-settings: 'FILL' 1;
+}

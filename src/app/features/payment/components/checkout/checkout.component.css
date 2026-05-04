@@ -1,0 +1,23 @@
+/* ==========================================================================
+   CHECKOUT PAGE STYLES
+   ========================================================================== */
+
+/* ── Custom Scrollbar for Summary ────────────────────────────────────────── */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-border-default);
+  border-radius: 9999px;
+}
+
+.img-fit {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

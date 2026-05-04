@@ -1,0 +1,129 @@
+<app-hero-slider />
+
+<!-- Categories Section -->
+<section class="section">
+  <div class="container-app">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 animate-reveal">
+      <div class="max-w-xl">
+        <span class="text-accent uppercase tracking-widest text-xs font-bold mb-3 block">Collections</span>
+        <h2 class="text-4xl md:text-5xl font-bold tracking-tighter">Shop by Category</h2>
+      </div>
+      <a routerLink="/categories"
+        class="text-sm font-semibold uppercase tracking-widest border-b-2 border-accent pb-1 hover:text-accent transition-smooth">
+        View All Collections
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      @if (isCatLoading()) {
+      @for (i of [1,2,3,4]; track i) {
+      <div class="aspect-square bg-surface-container animate-pulse rounded-2xl"></div>
+      }
+      } @else {
+      @for (cat of categories().slice(0, 4); track cat._id) {
+      <app-category-card [category]="cat" class="rounded-2xl overflow-hidden" />
+      }
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Featured Products -->
+<section class="section bg-surface-container">
+  <div class="container-app">
+    <div class="text-center mb-16 animate-reveal">
+      <span class="text-accent uppercase tracking-widest text-xs font-bold mb-3 block">Curated Selection</span>
+      <h2 class="text-4xl md:text-5xl font-bold tracking-tighter">Featured Essentials</h2>
+      <div class="w-20 h-1 bg-accent mx-auto mt-6"></div>
+    </div>
+
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12">
+      @if (isLoading()) {
+      @for (i of [1,2,3,4,5,6,7,8]; track i) {
+      <div class="aspect-[4/5] bg-white animate-pulse rounded-2xl"></div>
+      }
+      } @else {
+      @for (product of products().slice(0, 8); track product._id) {
+      <app-product-card [product]="product" [isFavorite]="favoriteIds().has(product.id || product._id)"
+        (addToCart)="addToCart($event)" (toggleWishlist)="handleToggleWishlist($event)" />
+      }
+      }
+    </div>
+
+    <div class="mt-16 text-center">
+      <button routerLink="/products" class="btn-outline">
+        Explore Full Collection
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Brand Story / About -->
+<section class="section-lg overflow-hidden">
+  <div class="container-app">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div class="relative animate-reveal">
+        <div class="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
+          <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&w=2070&auto=format&fit=crop"
+            alt="The Atelier Story" class="w-full h-full object-cover">
+        </div>
+        <!-- Decorative element -->
+        <div class="absolute -bottom-8 -right-8 w-48 h-48 bg-accent/10 rounded-full blur-3xl -z-10"></div>
+      </div>
+
+      <div class="space-y-8 animate-reveal" style="animation-delay: 0.2s">
+        <span class="text-accent uppercase tracking-widest text-xs font-bold">Our Philosophy</span>
+        <h2 class="text-5xl md:text-6xl font-bold tracking-tighter leading-tight">Crafting Timeless Elegance Since 2012
+        </h2>
+        <p class="text-lg text-on-surface-variant leading-relaxed font-light">
+          At ATELIER, we believe that fashion is more than just clothing; it's a reflection of your identity. Our pieces
+          are meticulously crafted with a focus on minimalist design, sustainable materials, and unparalleled
+          craftsmanship.
+        </p>
+        <div class="grid grid-cols-2 gap-8 pt-4">
+          <div>
+            <h4 class="text-2xl font-bold mb-2">100%</h4>
+            <p class="text-xs text-text-muted uppercase tracking-widest">Organic Materials</p>
+          </div>
+          <div>
+            <h4 class="text-2xl font-bold mb-2">Global</h4>
+            <p class="text-xs text-text-muted uppercase tracking-widest">Ethical Shipping</p>
+          </div>
+        </div>
+        <button class="btn-primary">Read Our Story</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter -->
+<section class="section bg-primary text-white overflow-hidden relative">
+  <!-- Subtle patterns -->
+  <div class="absolute inset-0 opacity-10">
+    <div
+      class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--color-accent)_0%,_transparent_70%)]">
+    </div>
+  </div>
+
+  <div class="container-app relative z-10">
+    <div class="max-w-3xl mx-auto text-center space-y-8 animate-reveal">
+      <h2 class="text-4xl md:text-5xl font-bold tracking-tighter !text-white">Join the Atelier Circle</h2>
+      <p class="!text-white text-lg font-light max-w-xl mx-auto">
+        Subscribe to receive early access to new collections, exclusive events, and fashion insights.
+      </p>
+
+      <form class="flex flex-col md:flex-row gap-4 max-w-lg mx-auto pt-4">
+        <input type="email" placeholder="your@email.com"
+          class="flex-grow px-6 py-4 bg-white/10 border border-white/30 rounded-full text-white placeholder:text-white/60 focus:outline-none focus:border-accent transition-smooth backdrop-blur-md">
+        <button
+          class="bg-white text-primary px-10 py-4 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-accent hover:text-white transition-smooth">
+          Subscribe
+        </button>
+      </form>
+
+      <p class="!text-white text-[10px] text-white/70 uppercase tracking-[0.2em]">
+        By subscribing, you agree to our Privacy Policy
+      </p>
+    </div>
+  </div>
+</section>

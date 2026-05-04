@@ -1,0 +1,92 @@
+<!-- ══════════════════════════════════════════════════
+     404 NOT FOUND PAGE
+     ══════════════════════════════════════════════════ -->
+<div class="not-found-page">
+
+  <!-- ── Hero: Asymmetric Typography ──────────────────────────────────── -->
+  <section class="hero-section" aria-label="404 error message">
+    <h1 class="error-code" aria-hidden="true">404</h1>
+
+    <div class="hero-copy">
+      <h2 class="hero-heading">The path was lost.</h2>
+      <p class="hero-body">
+        The page you are looking for does not exist or has been moved.
+        Let's find your way back to the collection.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── Search & CTA Cluster ──────────────────────────────────────────── -->
+  <div class="action-cluster" role="search" aria-label="Search the site">
+
+    <!-- Search Bar -->
+    <div class="search-wrapper">
+      <span class="material-symbols-outlined search-icon" aria-hidden="true">search</span>
+      <input
+        id="not-found-search"
+        class="search-input"
+        type="search"
+        placeholder="Search the atelier..."
+        [value]="searchQuery()"
+        (input)="onSearchInput($any($event.target).value)"
+        (keydown.enter)="onSearch()"
+        aria-label="Search the atelier"
+        autocomplete="off"
+      />
+    </div>
+
+    <!-- CTA Buttons -->
+    <div class="cta-group">
+      <button
+        type="button"
+        class="btn-cta btn-cta--primary"
+        (click)="goHome()"
+      >
+        Back to Home
+      </button>
+      <button
+        type="button"
+        class="btn-cta btn-cta--secondary"
+        (click)="goToCatalog()"
+      >
+        View Catalog
+      </button>
+    </div>
+  </div>
+
+  <!-- ── Suggested Categories ──────────────────────────────────────────── -->
+  <section class="categories-section" aria-label="Suggested categories">
+    <h3 class="categories-eyebrow">Suggested Categories</h3>
+
+    <div class="categories-grid">
+      @for (category of suggestedCategories; track category.name) {
+        <button
+          type="button"
+          class="category-card group"
+          (click)="navigateToCategory(category.route)"
+          [attr.aria-label]="'Browse ' + category.name"
+        >
+          <!-- Card content -->
+          <div class="category-card__header">
+            <span class="category-card__title">{{ category.name }}</span>
+            <span class="material-symbols-outlined category-card__arrow" aria-hidden="true">
+              arrow_forward
+            </span>
+          </div>
+
+          <!-- Decorative product image -->
+          <div class="category-card__image-wrap" aria-hidden="true">
+            <img
+              [src]="category.image"
+              [alt]="category.imageAlt"
+              class="category-card__image"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </button>
+      }
+    </div>
+  </section>
+
+</div>
