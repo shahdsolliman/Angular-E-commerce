@@ -4,6 +4,7 @@ import { tap, Observable } from 'rxjs';
 import { STORED_KEYS } from '../../../core/constants/storedkeys';
 import { AuthResponse, SigninData, SignupData, User } from '../auth.interface';
 import { AuthApiService } from '../services/auth.service';
+import { CartStore } from '../../cart/stores/cart.store';
 
 /**
  * ── ARCHITECTURE: AUTH STATE STORE ──────────────────────────────────────
@@ -15,6 +16,7 @@ import { AuthApiService } from '../services/auth.service';
 export class AuthStore {
   private readonly api = inject(AuthApiService);
   private readonly router = inject(Router);
+  private readonly cartStore = inject(CartStore);
 
   // ── State (Private Signals) ─────────────────────────────────────────────
   private readonly _user = signal<User | null>(null);
@@ -45,6 +47,7 @@ export class AuthStore {
     localStorage.removeItem(STORED_KEYS.USER);
     this._user.set(null);
     this._authenticated.set(false);
+    this.cartStore.clear();
     this.router.navigate(['/auth/login']);
   }
 
@@ -58,6 +61,7 @@ export class AuthStore {
       localStorage.setItem(STORED_KEYS.USER, JSON.stringify(res.user));
       this._user.set(res.user);
       this._authenticated.set(true);
+      this.cartStore.load();
     }
   }
 

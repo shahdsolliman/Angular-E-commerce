@@ -65,7 +65,7 @@ export class ProductStore {
   }
 
   private normalizeProducts(products: Product[]): Product[] {
-    // ── ATELIER FILTER ──────────────────────────────────────────────────
+    // ── SNAPSHOP FILTER ──────────────────────────────────────────────────
     // Exclude "SuperMarket" products to maintain premium brand positioning.
     return products
       .filter(p => {

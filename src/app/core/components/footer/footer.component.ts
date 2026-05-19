@@ -42,7 +42,7 @@ export class FooterComponent {
     {
       heading: 'Company',
       links: [
-        { label: 'About ATELIER', route: '/about'      },
+        { label: 'About SnapShop', route: '/about'      },
         { label: 'Careers',       route: '/careers'    },
         { label: 'Press',         route: '/press'      },
         { label: 'Sustainability',route: '/sustainability' },

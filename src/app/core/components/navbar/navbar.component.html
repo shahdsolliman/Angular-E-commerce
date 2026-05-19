@@ -3,9 +3,9 @@
     <!-- Logo -->
     <a routerLink="/" class="flex items-center gap-2 group">
       <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center transition-smooth group-hover:bg-accent group-hover:rotate-12">
-        <span class="text-white font-serif text-xl">A</span>
+        <span class="text-white font-serif text-xl">S</span>
       </div>
-      <span class="text-xl font-display font-bold tracking-tight text-primary">ATELIER</span>
+      <span class="text-xl font-display font-bold tracking-tight text-primary">SnapShop</span>
     </a>
 
     <!-- Desktop Navigation -->
@@ -73,7 +73,7 @@
           @if (userDropdownOpen()) {
             <div class="absolute right-0 mt-4 w-64 bg-white rounded-[1.5rem] border border-outline shadow-2xl p-4 animate-reveal z-[110]">
               <div class="px-4 py-3 border-b border-outline-variant mb-3">
-                <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-accent">Atelier Identity</p>
+                <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-accent">SnapShop Identity</p>
                 <p class="text-sm font-bold text-primary truncate">{{ currentUser()?.name }}</p>
               </div>
 
@@ -148,9 +148,9 @@
       <div class="flex items-center justify-between mb-12">
         <a routerLink="/" (click)="closeMenu()" class="flex items-center gap-2">
           <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-            <span class="text-white font-serif text-xl">A</span>
+            <span class="text-white font-serif text-xl">S</span>
           </div>
-          <span class="text-xl font-display font-bold tracking-tight text-primary">ATELIER</span>
+          <span class="text-xl font-display font-bold tracking-tight text-primary">SnapShop</span>
         </a>
         <button (click)="closeMenu()" class="p-2 text-primary">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -183,7 +183,7 @@
       } @else {
         <div class="mb-12">
           <a routerLink="/auth/login" (click)="closeMenu()" class="w-full btn-primary py-4 rounded-2xl flex items-center justify-center gap-3">
-            <span class="text-[10px] font-bold uppercase tracking-widest">Sign Into Atelier</span>
+            <span class="text-[10px] font-bold uppercase tracking-widest">Sign Into SnapShop</span>
           </a>
         </div>
       }

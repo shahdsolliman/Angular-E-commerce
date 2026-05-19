@@ -19,7 +19,7 @@ export class AuthApiService extends BaseHttpService {
 
   signin(data: SigninData): Observable<AuthResponse> {
     // ── GUEST BYPASS ──────────────────────────────────────────────────────
-    if (data.email === 'guest@atelier.com') {
+    if (data.email === 'guest@snapshop.com') {
       return of({
         message: 'success',
         token: 'mock-jwt-token',

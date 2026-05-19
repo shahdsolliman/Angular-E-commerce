@@ -4,6 +4,7 @@ import { catchError, throwError } from 'rxjs';
 import { Router } from '@angular/router';
 import { LoggerService } from '../services/utilities/logger.service';
 import { NotificationService } from '../services/utilities/notification.service';
+import { AuthStore } from '../../features/auth/stores/auth.store';
 
 /**
  * ── ARCHITECTURE: GLOBAL ERROR INTERCEPTOR ────────────────────────────────
@@ -13,6 +14,7 @@ export const errorInterceptor: HttpInterceptorFn = (req, next) => {
   const router = inject(Router);
   const logger = inject(LoggerService);
   const notifier = inject(NotificationService);
+  const authStore = inject(AuthStore);
 
   return next(req).pipe(
     catchError((error: HttpErrorResponse) => {
@@ -24,8 +26,12 @@ export const errorInterceptor: HttpInterceptorFn = (req, next) => {
         switch (error.status) {
           case 401:
             errorMessage = 'Session expired. Please re-authenticate.';
-            notifier.error(errorMessage);
-            router.navigate(['/auth/login']);
+            if (authStore.isAuthenticated()) {
+              notifier.error(errorMessage);
+              authStore.logout();
+            } else {
+              router.navigate(['/auth/login']);
+            }
             break;
           case 403:
             errorMessage = 'Access denied. Elevate privileges to proceed.';

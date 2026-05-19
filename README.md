@@ -1,10 +1,10 @@
-# **The Atelier — Premium E-Commerce Experience**
+# **SnapShop — Premium E-Commerce Experience**
 
 [![Angular](https://img.shields.io/badge/Angular-20.0%2B-DD0031?style=for-the-badge&logo=angular)](https://angular.io/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.0-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-**The Atelier** is a sophisticated, high-performance e-commerce platform designed for "Thoughtful Living." Built with a cutting-edge technical stack including **Angular 20 (Next)** and **Tailwind CSS 4.0**, it delivers a "Vibrant Luxury" aesthetic through glassmorphism, fluid animations, and a meticulous design system.
+**SnapShop** is a sophisticated, high-performance e-commerce platform designed for "Thoughtful Living." Built with a cutting-edge technical stack including **Angular 20 (Next)** and **Tailwind CSS 4.0**, it delivers a "Vibrant Luxury" aesthetic through glassmorphism, fluid animations, and a meticulous design system.
 
 ---
 
@@ -125,7 +125,7 @@ The frontend communicates with a standardized RESTful API.
 ## 📸 Screenshots
 
 > [!TIP]
-> Add high-quality screenshots here to showcase the **Atelier** aesthetic.
+> Add high-quality screenshots here to showcase the **SnapShop** aesthetic.
 > *   **Home Page:** Hero section with glassmorphism header.
 > *   **Product Grid:** Displaying the "Card-Premium" hover effects.
 > *   **Mobile View:** Demonstrating the responsive bottom navigation or sidebar.

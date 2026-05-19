@@ -4,9 +4,9 @@
  * Prevents key collision and facilitates global storage clearing.
  */
 export const STORED_KEYS = {
-  TOKEN: 'atelier_secure_token',
-  USER: 'atelier_identity_artifact',
-  THEME: 'atelier_visual_mode',
-  CART: 'atelier_cached_basket',
-  LANGUAGE: 'atelier_locale_config',
+  TOKEN: 'snapshop_secure_token',
+  USER: 'snapshop_identity_artifact',
+  THEME: 'snapshop_visual_mode',
+  CART: 'snapshop_cached_basket',
+  LANGUAGE: 'snapshop_locale_config',
 } as const;

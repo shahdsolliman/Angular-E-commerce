@@ -68,7 +68,7 @@ import { AddressApiService, Address } from '../../services/address.service';
                   </div>
                   <div class="pt-6 border-t border-outline-variant">
                     <p class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-4">Account Status</p>
-                    <span class="px-4 py-1.5 bg-green-50 text-green-600 text-[10px] font-bold uppercase tracking-widest rounded-full">Verified Atelier Member</span>
+                    <span class="px-4 py-1.5 bg-green-50 text-green-600 text-[10px] font-bold uppercase tracking-widest rounded-full">Verified SnapShop Member</span>
                   </div>
                 </div>
               </div>

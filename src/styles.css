@@ -12,14 +12,14 @@
 /* ── Flowbite & Custom Styles ─────────────────────────────────────────────── */
 
 @theme {
-  /* ── ATELIER "VIBRANT LUXURY" Palette ─────────────────────────────────────── */
+  /* ── SNAPSHOP "VIBRANT LUXURY" Palette ─────────────────────────────────────── */
   --color-primary:                  #0F1115; /* Sophisticated Midnight */
   --color-primary-light:            #1A1D23;
   --color-secondary:                #943B2E; /* Rosewood / Desire Red (For CTAs) */
   --color-accent:                   #E5B95F; /* Radiant Gold (More Life) */
   --color-accent-light:             #F2D28D;
   
-  /* The Atelier Design Tokens - Warmed Up */
+  /* The SnapShop Design Tokens - Warmed Up */
   --color-surface:                  #FFFFFF;
   --color-background:               #F9F8F6; /* Warm Paper / Sand */
   --color-surface-container:        #F2F0ED;
@@ -109,7 +109,7 @@ h1, h2, h3, h4, h5, h6 {
   animation: reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.input-atelier {
+.input-snapshop {
   @apply w-full px-6 py-4 bg-surface-container border border-transparent rounded-2xl focus:bg-white focus:border-accent outline-none transition-smooth placeholder:text-text-muted/50 font-medium text-sm;
 }
 

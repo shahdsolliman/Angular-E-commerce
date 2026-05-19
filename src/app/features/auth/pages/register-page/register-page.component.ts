@@ -52,7 +52,7 @@ export class RegisterPageComponent {
       error: (err) => {
         // DEV BYPASS: Log in anyway if Registration fails
         console.warn('API Registration failed. Proceeding with Mock Session for development.');
-        this.authStore.signin({ email: 'guest@atelier.com', password: 'any' }).subscribe(() => {
+        this.authStore.signin({ email: 'guest@snapshop.com', password: 'any' }).subscribe(() => {
            this.router.navigate(['/home']);
         });
       },
