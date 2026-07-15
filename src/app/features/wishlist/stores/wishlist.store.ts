@@ -4,6 +4,7 @@ import { WishlistResponse } from '../wishlist.interface';
 import { WishlistApiService } from '../services/wishlist.service';
 import { NotificationService } from '../../../core/services/utilities/notification.service';
 import { LoggerService } from '../../../core/services/utilities/logger.service';
+import { AuthStore } from '../../auth/stores/auth.store';
 
 /**
  * ── ARCHITECTURE: WISHLIST STATE STORE ────────────────────────────────────
@@ -14,6 +15,7 @@ export class WishlistStore {
   private readonly api = inject(WishlistApiService);
   private readonly notifier = inject(NotificationService);
   private readonly logger = inject(LoggerService);
+  private readonly authStore = inject(AuthStore);
 
   private readonly _wishlist = signal<WishlistResponse | null>(null);
   private readonly _loading = signal(false);
@@ -25,6 +27,10 @@ export class WishlistStore {
   readonly favoriteIds = computed(() => new Set(this.wishlistItems().map(p => p.id || p._id)));
 
   load(): void {
+    if (!this.authStore.isAuthenticated()) {
+      return;
+    }
+
     this._loading.set(true);
     this.api.getWishlist().pipe(
       tap(res => this._wishlist.set(res)),
